@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers";
 
@@ -7,7 +8,7 @@ export const HeroPage = () => {
     const { id } = useParams();
     const navigate = useNavigate()
 
-    const hero = getHeroById(id)
+    const hero = useMemo(() => getHeroById(id), [id])
 
     const onNavigateBack = () => navigate(-1)
 
@@ -30,10 +31,10 @@ export const HeroPage = () => {
                 <h5 className="mt-3">Characters</h5>
                 <p>{hero.characters}</p>
 
-                <button 
+                <button
                     className="btn btn-outline-primary"
                     onClick={onNavigateBack}
-                    >
+                >
                     Regresar
                 </button>
             </div>

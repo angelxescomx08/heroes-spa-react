@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 export const HeroeCard = ({
@@ -27,7 +28,14 @@ export const HeroeCard = ({
                             <p className="card-text">
                                 {alter_ego}
                             </p>
-                            <p>{characters}</p>
+                            {alter_ego !== characters && <p>{characters}</p>}
+                            <p className="card-text">
+                                <small className="text-muted">
+                                    {first_appearance}
+                                </small>
+                            </p>
+
+                            <Link to={`/heroe/${id}`}>Más...</Link>
                         </div>
                     </div>
                 </div>

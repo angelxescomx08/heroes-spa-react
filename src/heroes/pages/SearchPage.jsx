@@ -1,7 +1,46 @@
-
+import { HeroeCard } from '../components'
 
 export const SearchPage = () => {
     return (
-        <div>SearchPage</div>
+        <>
+            <h1>Search</h1>
+            <hr />
+
+            <div className="row">
+                <div className="col-5">
+                    <h4>Searching</h4>
+                    <hr />
+
+                    <form action="">
+                        <input
+                            type={'text'}
+                            placeholder={'search a hero'}
+                            className={'form-control'}
+                            name={'searchText'}
+                            autoComplete={'off'}
+                        />
+                        <button className="btn btn-outline-primary mt-1">
+                            Search
+                        </button>
+                    </form>
+                </div>
+
+                <div className="col-7">
+                    <h4>Results</h4>
+                    <hr />
+
+                    <div className="alert alert-primary">
+                        Search a hero
+                    </div>
+
+                    <div className="alert alert-danger">
+                        There's no hero <b>ABC</b>
+                    </div>
+
+                    <HeroeCard />
+                </div>
+            </div>
+
+        </>
     )
 }
